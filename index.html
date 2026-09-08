@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LOLI: cinnamon rolls de 8 cm preparados por pedido en Mérida.">
+  <title>LOLI — Antojos por pedido</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main>
+  <header class="topbar">
+    <a class="brand" href="#inicio">LOLI<span>●</span></a>
+    <p>Preventa semanal · Mérida</p>
+    <a class="nav-order" href="#pedido">Hacer pedido</a>
+  </header>
+
+  <section class="hero" id="inicio">
+    <img src="./cinnamon-rolls.png" alt="Cinnamon rolls recién horneados con frosting">
+    <div class="hero-copy">
+      <p class="eyebrow">Horneados por pedido</p>
+      <h1>Pide tu roll,<br><em>¡sin rollos!</em></h1>
+      <p>Rollos de canela de 8 cm, suaves, tibios y preparados solo después de que los pides.</p>
+      <a class="hero-button" href="#pedido">Armar mi pedido <span>↓</span></a>
+    </div>
+  </section>
+
+  <section class="intro-section">
+    <p class="eyebrow">Pide tu LOLI</p>
+    <h2>Elige el que más te provoque.</h2>
+    <p>Combina sabores y pide la cantidad que quieras. El delivery es gratis a partir de 3 rolls dentro de la zona acordada.</p>
+    <div class="promise"><span>8 cm</span><span>4 sabores</span><span>delivery gratis desde 3</span></div>
+  </section>
+
+  <section class="lola-section" aria-labelledby="lola-title">
+    <div class="lola-photo"><img src="./lola-chef.png" alt="Lola, la perrita catadora de LOLI, vestida de chef"></div>
+    <div class="lola-copy">
+      <p class="eyebrow">La chef detrás de LOLI</p>
+      <h2 id="lola-title">Ella es Lola, nuestra catadora estrella.</h2>
+      <p>Dice que todo está delicioso. Y con esa carita, ¿quién se atreve a llevarle la contraria?</p>
+      <span class="lola-seal">Aprobado por Lola · ★★★★★</span>
+    </div>
+  </section>
+
+  <section class="delivery-message">
+    <p>Tu semana merece algo recién horneado.</p>
+    <h2>Entregamos jueves, viernes, sábado y domingo.</h2>
+    <span>Tú escoges el día al hacer el pedido.</span>
+  </section>
+
+  <form class="order-section" id="pedido" novalidate>
+    <div class="order-heading">
+      <p class="eyebrow">Tu pedido</p>
+      <h2>Elige tus sabores.</h2>
+      <p>Puedes mezclar como quieras. Los clásicos cuestan $3,50 y los especiales $4,20.</p>
+    </div>
+
+    <div class="flavor-grid">
+      <article class="flavor-card" data-flavor="clasico">
+        <span class="flavor-index">01</span>
+        <img src="./roll-clasico.png" alt="Cinnamon roll sabor Clásico">
+        <h3>Clásico</h3><p>Canela, azúcar morena y frosting de queso crema</p>
+        <div class="price">$3.50 <span>cada uno</span></div>
+        <div class="stepper"><button type="button" data-action="remove" aria-label="Quitar Clásico">−</button><strong>0</strong><button type="button" data-action="add" aria-label="Agregar Clásico">+</button></div>
+      </article>
+      <article class="flavor-card" data-flavor="arequipe">
+        <span class="flavor-index">02</span>
+        <img src="./roll-arequipe.png" alt="Cinnamon roll sabor Arequipe">
+        <h3>Arequipe</h3><p>Relleno cremoso y topping de arequipe</p>
+        <div class="price">$4.20 <span>cada uno</span></div>
+        <div class="stepper"><button type="button" data-action="remove" aria-label="Quitar Arequipe">−</button><strong>0</strong><button type="button" data-action="add" aria-label="Agregar Arequipe">+</button></div>
+      </article>
+      <article class="flavor-card" data-flavor="chocolate">
+        <span class="flavor-index">03</span>
+        <img src="./roll-chocolate.png" alt="Cinnamon roll sabor Chocolate">
+        <h3>Chocolate</h3><p>Chocolate untable y un toque intenso de cacao</p>
+        <div class="price">$4.20 <span>cada uno</span></div>
+        <div class="stepper"><button type="button" data-action="remove" aria-label="Quitar Chocolate">−</button><strong>0</strong><button type="button" data-action="add" aria-label="Agregar Chocolate">+</button></div>
+      </article>
+      <article class="flavor-card special" data-flavor="apple">
+        <span class="special-label">Especial</span><span class="flavor-index">04</span>
+        <img src="./apple-cinnamon.png" alt="Cinnamon roll sabor Apple Cinnamon">
+        <h3>Apple Cinnamon</h3><p>Manzana caramelizada, canela y frosting suave</p>
+        <div class="price">$4.20 <span>cada uno</span></div>
+        <div class="stepper"><button type="button" data-action="remove" aria-label="Quitar Apple Cinnamon">−</button><strong>0</strong><button type="button" data-action="add" aria-label="Agregar Apple Cinnamon">+</button></div>
+      </article>
+    </div>
+
+    <section class="delivery-form">
+      <div><p class="eyebrow">Datos para entregarte</p><h2>¿Cuándo y a dónde va?</h2><p>Entregamos de jueves a domingo. Completa tus datos y escoge el día que prefieras.</p></div>
+      <div class="fields">
+        <label>Nombre completo<input id="name" required placeholder="Tu nombre"></label>
+        <label>Teléfono<input id="phone" required type="tel" placeholder="0412 000 0000"></label>
+        <label class="wide">Día de entrega<select id="deliveryDay" required><option value="" disabled selected>Selecciona un día</option><option>Jueves</option><option>Viernes</option><option>Sábado</option><option>Domingo</option></select></label>
+        <label class="wide">Dirección de entrega<textarea id="address" required placeholder="Urbanización, calle, edificio/casa y referencia" rows="3"></textarea></label>
+        <label class="wide">Indicaciones adicionales <span>(opcional)</span><input id="details" placeholder="Ej.: portón negro, entregar después de las 3 pm"></label>
+      </div>
+    </section>
+
+    <section class="payment-card">
+      <div><p class="eyebrow">Datos de pago</p><h2>Paga y confirma por WhatsApp.</h2><p>Puedes hacer transferencia o pago móvil. Guarda el comprobante para enviarlo junto con tu pedido.</p></div>
+      <dl>
+        <div><dt>Banco</dt><dd>Provincial · 0108</dd></div>
+        <div><dt>Cuenta</dt><dd>01080067620200611298</dd></div>
+        <div><dt>Cédula</dt><dd>V-27.587.962</dd></div>
+        <div><dt>Teléfono</dt><dd>0414-7071150</dd></div>
+      </dl>
+    </section>
+
+    <aside class="order-summary">
+      <div><span>Tu pedido</span><strong id="rollCount">0 rolls</strong><small id="deliveryNote">Delivery gratis desde 3 rolls</small></div>
+      <div class="summary-total"><span>Total estimado</span><b id="total">$0.00</b></div>
+      <button class="whatsapp" type="submit">Enviar pedido por WhatsApp</button>
+      <p class="form-error" id="formError" role="alert" hidden></p>
+      <small>El pedido se confirma al acordar disponibilidad y pago.</small>
+    </aside>
+  </form>
+
+  <footer><span class="brand">LOLI<span>●</span></span><p>Pequeños antojos, hechos con cariño.</p></footer>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
