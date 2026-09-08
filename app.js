@@ -10,6 +10,9 @@ const rollCount = document.querySelector("#rollCount");
 const deliveryNote = document.querySelector("#deliveryNote");
 const totalElement = document.querySelector("#total");
 const formError = document.querySelector("#formError");
+const sendMessage = document.querySelector("#sendMessage");
+const continueWhatsapp = document.querySelector("#continueWhatsapp");
+let pendingWhatsappUrl = "";
 
 function totals() {
   const rolls = Object.values(counts).reduce((sum, count) => sum + count, 0);
@@ -26,7 +29,7 @@ function render() {
   const { rolls, total } = totals();
   rollCount.textContent = `${rolls} ${rolls === 1 ? "roll" : "rolls"}`;
   totalElement.textContent = `$${total.toFixed(2)}`;
-  deliveryNote.textContent = rolls >= 3 ? "Delivery gratis ✓" : "Delivery gratis desde 3 rolls";
+  deliveryNote.textContent = rolls >= 3 ? "Delivery gratis en el casco central ✓" : "Delivery gratis desde 3 rolls en el casco central";
 }
 
 document.querySelectorAll(".stepper button").forEach((button) => {
@@ -63,7 +66,13 @@ form.addEventListener("submit", (event) => {
     .map(([id, count]) => `• ${count} × ${flavors[id].name} — $${(count * flavors[id].price).toFixed(2)}`)
     .join("\n");
   const message = `Hola, quiero hacer este pedido de LOLI:\n\n${items}\n\nTotal: $${total.toFixed(2)}\nRollos: ${rolls}\nDía de entrega: ${deliveryDay}\n\nNombre: ${name}\nTeléfono: ${phone}\nDirección: ${address}${details ? `\nIndicaciones: ${details}` : ""}\n\nVi los datos de pago en la página. ¿Me confirmas disponibilidad y hora de entrega?`;
-  window.location.href = `https://wa.me/584147071150?text=${encodeURIComponent(message)}`;
+  pendingWhatsappUrl = `https://wa.me/584147071150?text=${encodeURIComponent(message)}`;
+  sendMessage.hidden = false;
+  continueWhatsapp.focus();
+});
+
+continueWhatsapp.addEventListener("click", () => {
+  if (pendingWhatsappUrl) window.location.href = pendingWhatsappUrl;
 });
 
 render();

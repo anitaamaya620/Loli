@@ -552,6 +552,91 @@ select:focus { border-color: var(--wine); box-shadow: 0 0 0 3px #f0c9cf; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.stockists {
+  padding: 6rem 8vw;
+  text-align: center;
+  background: var(--paper);
+}
+.stockists > h2 {
+  margin: 0.45rem 0 2.4rem;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+.stockist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.stockist-grid article {
+  position: relative;
+  padding: 2.2rem 1.5rem;
+  background: #fff2f4;
+  border: 1px solid var(--line);
+}
+.stockist-grid article > span {
+  color: var(--rose);
+  font-family: Georgia, serif;
+}
+.stockist-grid h3 {
+  margin: 0.7rem 0 0.55rem;
+  font-size: 1.8rem;
+}
+.stockist-grid p {
+  margin: 0;
+  color: var(--muted);
+}
+.send-message[hidden] {
+  display: none;
+}
+.send-message {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+  background: rgba(43, 25, 32, 0.72);
+}
+.send-message-card {
+  width: min(560px, 100%);
+  padding: clamp(2rem, 6vw, 4rem);
+  text-align: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 70px rgba(43, 25, 32, 0.25);
+}
+.send-heart {
+  display: block;
+  margin-bottom: 0.9rem;
+  font-size: 2.5rem;
+}
+.send-message-card h2 {
+  margin: 0.55rem 0 1rem;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+.send-message-card > p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.send-message-card strong {
+  display: block;
+  margin: 1.2rem 0 1.8rem;
+  color: var(--wine);
+}
+.send-message-card button {
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  background: var(--wine);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
 
 @media (max-width: 760px) {
   .lola-section {
@@ -560,6 +645,7 @@ select:focus { border-color: var(--wine); box-shadow: 0 0 0 3px #f0c9cf; }
   }
   .lola-photo { min-height: 430px; }
   .lola-copy { padding: 2.2rem 1.5rem 2.6rem; }
+  .stockist-grid { grid-template-columns: 1fr; }
   .payment-card { grid-template-columns: 1fr; }
   .payment-card dl { grid-template-columns: 1fr; }
 }
