@@ -557,6 +557,99 @@ select:focus { border-color: var(--wine); box-shadow: 0 0 0 3px #f0c9cf; }
   text-align: center;
   background: var(--paper);
 }
+.loyalty-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding: clamp(4.5rem, 9vw, 8rem) 8vw;
+  background: #f7e4e8;
+}
+.loyalty-copy h2 {
+  margin: 0.55rem 0 1.2rem;
+  font-size: clamp(2.8rem, 5.5vw, 5.7rem);
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+.loyalty-copy > p:not(.eyebrow) {
+  max-width: 570px;
+  margin: 0 0 1.2rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.loyalty-copy > span {
+  color: var(--wine);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+.loyalty-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.6rem, 4vw, 3rem);
+  background: var(--wine);
+  color: white;
+  border-radius: 26px;
+  box-shadow: 0 28px 70px rgba(98, 26, 49, 0.24);
+  transform: rotate(1.5deg);
+}
+.loyalty-card::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -80px;
+  top: -90px;
+  border: 34px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+}
+.loyalty-brand {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.loyalty-brand strong {
+  font-size: 1.7rem;
+  letter-spacing: -0.05em;
+}
+.loyalty-brand strong span { color: var(--rose); }
+.loyalty-brand small,
+.loyalty-card > p,
+.loyalty-note { color: #f4cfd8; }
+.loyalty-card > p { margin: 1rem 0 1.5rem; }
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(0.45rem, 1.4vw, 0.8rem);
+}
+.stamp-grid > span {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  color: #f4cfd8;
+  font-family: Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+.loyalty-reward {
+  display: block;
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  color: var(--wine);
+  background: var(--rose);
+  border-radius: 999px;
+  font-size: clamp(0.78rem, 1.6vw, 0.95rem);
+  text-align: center;
+}
+.loyalty-note {
+  display: block;
+  margin-top: 1.3rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
 .stockists > h2 {
   margin: 0.45rem 0 2.4rem;
   font-size: clamp(2.8rem, 5vw, 5.2rem);
@@ -645,6 +738,8 @@ select:focus { border-color: var(--wine); box-shadow: 0 0 0 3px #f0c9cf; }
   }
   .lola-photo { min-height: 430px; }
   .lola-copy { padding: 2.2rem 1.5rem 2.6rem; }
+  .loyalty-section { grid-template-columns: 1fr; padding: 4rem 1rem; }
+  .loyalty-card { transform: none; }
   .stockist-grid { grid-template-columns: 1fr; }
   .payment-card { grid-template-columns: 1fr; }
   .payment-card dl { grid-template-columns: 1fr; }
