@@ -198,6 +198,23 @@ h1 em {
   line-height: 1.65;
   font-size: 1.05rem;
 }
+.order-facts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.7rem;
+}
+.order-facts span {
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--rose);
+  border-radius: 999px;
+  color: var(--wine);
+  background: rgba(255, 250, 251, 0.72);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
 .flavor-grid {
   max-width: 1200px;
   margin: 3rem auto;
@@ -396,6 +413,57 @@ footer p {
   margin: 0;
   color: var(--muted);
 }
+.scroll-cue {
+  position: fixed;
+  z-index: 15;
+  right: clamp(0.8rem, 2vw, 1.5rem);
+  bottom: clamp(0.9rem, 3vw, 1.7rem);
+  width: 112px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--wine);
+  text-align: center;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 14px rgba(43, 25, 32, 0.2));
+  animation: cue-bob 1.9s ease-in-out infinite;
+}
+.scroll-cue[hidden] { display: none; }
+.scroll-cue img {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto -0.15rem;
+  object-fit: cover;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: var(--blush);
+}
+.scroll-cue span {
+  display: inline-block;
+  padding: 0.38rem 0.62rem;
+  border-radius: 999px;
+  background: var(--wine);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.scroll-cue b {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--wine);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+@keyframes cue-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue { animation: none; }
+}
 @media (max-width: 760px) {
   .topbar p {
     display: none;
@@ -438,6 +506,23 @@ footer p {
     flex-direction: column;
     align-items: flex-start;
   }
+  .order-section { padding: 4rem 1rem; }
+  .flavor-grid { margin-top: 2rem; }
+  .scroll-cue {
+    right: 0.45rem;
+    bottom: 0.65rem;
+    width: 82px;
+  }
+  .scroll-cue img {
+    width: 62px;
+    height: 62px;
+    border-width: 2px;
+  }
+  .scroll-cue span {
+    padding: 0.3rem 0.48rem;
+    font-size: 0.61rem;
+  }
+  .scroll-cue b { font-size: 1.05rem; }
 }
 
 .delivery-message {

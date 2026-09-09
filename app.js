@@ -12,6 +12,7 @@ const totalElement = document.querySelector("#total");
 const formError = document.querySelector("#formError");
 const sendMessage = document.querySelector("#sendMessage");
 const continueWhatsapp = document.querySelector("#continueWhatsapp");
+const scrollCue = document.querySelector("#scrollCue");
 let pendingWhatsappUrl = "";
 
 function totals() {
@@ -65,7 +66,7 @@ form.addEventListener("submit", (event) => {
     .filter(([, count]) => count)
     .map(([id, count]) => `• ${count} × ${flavors[id].name} — $${(count * flavors[id].price).toFixed(2)}`)
     .join("\n");
-  const message = `Hola, quiero hacer este pedido de LOLI:\n\n${items}\n\nTotal: $${total.toFixed(2)}\nRollos: ${rolls}\nDía de entrega: ${deliveryDay}\n\nNombre: ${name}\nTeléfono: ${phone}\nDirección: ${address}${details ? `\nIndicaciones: ${details}` : ""}\n\nVi los datos de pago en la página. ¿Me confirmas disponibilidad y hora de entrega?`;
+  const message = `Hola, quiero hacer este pedido de LOLI:\n\n${items}\n\nTotal: $${total.toFixed(2)}\nRollos: ${rolls}\nDía de entrega: ${deliveryDay}\n\nNombre: ${name}\nTeléfono: ${phone}\nDirección: ${address}${details ? `\nIndicaciones: ${details}` : ""}\n\n¿Me confirmas disponibilidad, hora de entrega y me envías los datos de pago?`;
   pendingWhatsappUrl = `https://wa.me/584147071150?text=${encodeURIComponent(message)}`;
   sendMessage.hidden = false;
   continueWhatsapp.focus();
@@ -74,5 +75,17 @@ form.addEventListener("submit", (event) => {
 continueWhatsapp.addEventListener("click", () => {
   if (pendingWhatsappUrl) window.location.href = pendingWhatsappUrl;
 });
+
+scrollCue.addEventListener("click", () => {
+  window.scrollBy({ top: window.innerHeight * 0.72, behavior: "smooth" });
+});
+
+function updateScrollCue() {
+  const closeToBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 360;
+  scrollCue.hidden = closeToBottom;
+}
+
+window.addEventListener("scroll", updateScrollCue, { passive: true });
+updateScrollCue();
 
 render();
