@@ -7,7 +7,6 @@ const flavors = {
 const counts = { clasico: 0, arequipe: 0, chocolate: 0, apple: 0 };
 const form = document.querySelector("#pedido");
 const rollCount = document.querySelector("#rollCount");
-const deliveryNote = document.querySelector("#deliveryNote");
 const totalElement = document.querySelector("#total");
 const formError = document.querySelector("#formError");
 const sendMessage = document.querySelector("#sendMessage");
@@ -30,7 +29,6 @@ function render() {
   const { rolls, total } = totals();
   rollCount.textContent = `${rolls} ${rolls === 1 ? "roll" : "rolls"}`;
   totalElement.textContent = `$${total.toFixed(2)}`;
-  deliveryNote.textContent = rolls >= 3 ? "Delivery gratis en el casco central ✓" : "Delivery gratis desde 3 rolls en el casco central";
 }
 
 document.querySelectorAll(".stepper button").forEach((button) => {
